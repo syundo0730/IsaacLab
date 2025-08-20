@@ -773,7 +773,7 @@ def repeated_objects_terrain(
     # -- common parameters
     num_objects = cp_0.num_objects + int(difficulty * (cp_1.num_objects - cp_0.num_objects))
     height = cp_0.height + difficulty * (cp_1.height - cp_0.height)
-    platform_height = cfg.platform_height if cfg.platform_height >= 0.0 else height
+    platform_height = cfg.platform_height if hasattr(cfg, "platform_height") and cfg.platform_height >= 0.0 else height
     # -- object specific parameters
     # note: SIM114 requires duplicated logical blocks under a single body.
     if isinstance(cfg, MeshRepeatedBoxesTerrainCfg):
